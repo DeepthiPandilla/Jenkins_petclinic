@@ -4,29 +4,22 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/DeepthiPandilla/Jenkins_petclinic.git'
-            }
-        }
-        stage('Build') {
-            steps {
-                sh './mvn clean install'
+                git 'https://github.com/DeepthiPandilla/spring-petclinic.git'
+                echo "Git repository cloned successfully"
             }
         }
         stage('Test') {
             steps {
-                sh './mvn test' 
+                sh 'mvn compile' 
+                echo "Maven compile executed successfully"
             }
         }
         stage('Package') {
             steps {
-                sh './mvn package' if using Maven
+                sh 'mvn package'
             }
         }
-        stage('Deploy') {
-            steps {
-                sh 'scp build/libs/*.jar labuser@3.111.33.8:/home/labuser/jenkinsproject'
-            }
-        }
+
     }
 
     post {
