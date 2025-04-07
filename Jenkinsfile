@@ -10,6 +10,7 @@ pipeline {
         }
         stage('Test') {
             steps {
+                
                 sh 'mvn compile' 
                 echo "Maven compile executed successfully"
             }
@@ -17,6 +18,12 @@ pipeline {
         stage('Package') {
             steps {
                 sh 'mvn package'
+            }
+        }
+
+        stage ('Initiate') {
+            steps {
+                sh 'java -jar target/*.jar &'
             }
         }
 
