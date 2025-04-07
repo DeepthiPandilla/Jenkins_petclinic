@@ -18,6 +18,7 @@ pipeline {
         stage('Package') {
             steps {
                 sh 'mvn package'
+                echo "Created Jar file for execution"
             }
         }
 
@@ -27,10 +28,10 @@ pipeline {
 
     post {
         success {
-            echo 'Build and Deploy succeeded!'
+            echo 'Build is successful!'
         }
         failure {
-            echo 'Build or Deploy failed!'
+            echo 'Build failed!'
         }
     }
 }
