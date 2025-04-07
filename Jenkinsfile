@@ -23,7 +23,7 @@ pipeline {
 
         stage ('Initiate') {
             steps {
-                sh 'java -jar target/*.jar &'
+                sh 'java -jar target/*.jar'
             }
         }
 
