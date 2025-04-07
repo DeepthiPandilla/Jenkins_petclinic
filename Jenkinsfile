@@ -23,7 +23,10 @@ pipeline {
 
         stage ('Initiate') {
             steps {
-                sh 'java -jar target/*.jar'
+                sh 'cd jenkinsfile_springboot'
+                sh 'java -jar target/*.jar &'
+                sh 'sleep 30'
+                echo "Starting Application"
             }
         }
 
