@@ -25,7 +25,7 @@ pipeline {
             steps {
                 dir('target') {
                         sh 'java -version'
-                        sh 'java -jar *.jar &'
+                        sh 'java -jar *.jar'
                     }
                 
                 sh 'sleep 30'
