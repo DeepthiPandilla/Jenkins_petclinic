@@ -21,17 +21,7 @@ pipeline {
             }
         }
 
-        stage ('Initiate') {
-            steps {
-                dir('target') {
-                        sh 'java -version'
-                        sh 'java -jar *.jar'
-                    }
-                
-                sh 'sleep 30'
-                echo "Starting Application"
-            }
-        }
+   
 
     }
 
